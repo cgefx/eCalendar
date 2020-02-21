@@ -1,0 +1,91 @@
+/*--------------------------------*/
+/* Basic Setup */
+/*---------------------------------*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  padding: 1.25em;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+h1,
+h2 {
+  margin: 0.5em 0;
+  font-weight: bold;
+}
+
+/*--------------------------------*/
+/* App Layout */
+/*---------------------------------*/
+
+.page {
+  margin: 0 auto;
+  max-width: 1408px;
+  padding: 150px 10px 150px 10px;
+}
+
+
+.container__app {
+  display: flex;
+  height: 650px;
+  justify-content: space-around;
+}
+
+.column__arrow {
+  flex-grow: 0;
+  background-color: #A2CBFA;
+  border: 1px solid #4390e1;
+  align-self: center;
+}
+
+.column__calendar {
+  flex-grow: 3;
+  background-color: #A2CBFA;
+  border: 1px solid #4390e1;
+  margin: 0 60px 0 60px;
+}
+
+
+.column__events {
+  flex-grow: 1;
+  background-color: #A2CBFA;
+  border: 1px solid #4390e1;
+  margin: 0 0 0 60px;
+}
+
+/* .flex__column+ .flex__column {
+  margin-left: 1%;
+} */
+
+/*--------------------------------*/
+/** Calendar Layout **/
+/*---------------------------------*/
+
+.calendar-header {
+  height: 135px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.month-header {
+  height: 85px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-around;
+}
+
+.calendar {
+  width: 100%;
+  font-size: 0.75em; /*12*/
+  line-height: 1.25em; /*15*/
+  border-collapse: collapse;
+  border-spacing: 0;
+}
