@@ -1,4 +1,33 @@
 /*--------------------------------*/
+/* Imports*/
+/*---------------------------------*/
+
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,400i,500,700|Open+Sans+Condensed:300|Open+Sans:300,400,400i,700&display=swap");
+
+/*--------------------------------*/
+/* Variables */
+/*---------------------------------*/
+:root {
+  --mainWhite: #fff;
+  --colorPrimary: #26b9cc;
+  --colorSecondary: #7cc0c9;
+  --mainDark: #839395;
+  --secondaryDark: #696868;
+
+  --CalendarTitle: "Montserrat";
+  --CalendarYear: "Montserrat";
+  --CalendarMonths: "Montserrat";
+  --CalendarWeekdays: "Montserrat";
+
+  --CalendarNumbers: "Open Sans Condensed";
+
+  --EventsTodaysDay: "Open Sans", 300;
+  --EventsTodaysNumber: "Open Sans", bold;
+  --EventsUpcoming: "Open Sans", 400, i;
+  --EventsAdd: "Open Sans", 300;
+}
+
+/*--------------------------------*/
 /* Basic Setup */
 /*---------------------------------*/
 
@@ -10,13 +39,11 @@
 
 body {
   padding: 1.25em;
-  font-family: "Helvetica Neue", Arial, sans-serif;
 }
 
 h1,
 h2 {
   margin: 0.5em 0;
-  font-weight: bold;
 }
 
 /*--------------------------------*/
@@ -29,7 +56,6 @@ h2 {
   padding: 150px 10px 150px 10px;
 }
 
-
 .container__app {
   display: flex;
   height: 650px;
@@ -38,32 +64,23 @@ h2 {
 
 .column__arrow {
   flex-grow: 0;
-  background-color: #A2CBFA;
-  border: 1px solid #4390e1;
   align-self: center;
 }
 
 .column__calendar {
   flex-grow: 3;
-  background-color: #A2CBFA;
-  border: 1px solid #4390e1;
   margin: 0 60px 0 60px;
+  padding: 20px;
 }
-
 
 .column__events {
   flex-grow: 1;
-  background-color: #A2CBFA;
-  border: 1px solid #4390e1;
   margin: 0 0 0 60px;
+  padding: 20px;
 }
 
-/* .flex__column+ .flex__column {
-  margin-left: 1%;
-} */
-
 /*--------------------------------*/
-/** Calendar Layout **/
+/*Calendar Layout*/
 /*---------------------------------*/
 
 .calendar-header {
@@ -72,14 +89,36 @@ h2 {
   flex-direction: row;
   align-items: flex-end;
   justify-content: space-between;
+  color: var(--colorPrimary);
+}
+
+.app-name {
+  font-family: var(--CalendarTitle);
+  font-weight: 700;
+}
+
+.current-year {
+  font-family: var(--CalendarYear);
+  font-weight: 300;
 }
 
 .month-header {
-  height: 85px;
+  height: 60px;
   display: flex;
   flex-direction: row;
   align-items: flex-end;
   justify-content: space-around;
+  padding-bottom: 10px;
+  color: var(--colorSecondary);
+  font-family: var(--CalendarMonths);
+  text-transform: uppercase;
+  font-size: 12px;
+  border-bottom: 1.5px solid var(--mainDark);
+}
+
+.month-header .current {
+  color: var(--colorPrimary);
+  font-weight: bold;
 }
 
 .calendar {
@@ -88,4 +127,144 @@ h2 {
   line-height: 1.25em; /*15*/
   border-collapse: collapse;
   border-spacing: 0;
+  text-align: center;
+  margin: auto 0;
+  padding-top: 50px;
+}
+
+/*--------------------------------*/
+/*Calendar Table*/
+/*---------------------------------*/
+
+.calendar th {
+  color: var(--secondaryDark);
+  text-transform: uppercase;
+  font-family: var(--CalendarWeekdays);
+  padding-top: 20px;
+}
+
+.calendar td {
+  /* border: 1px solid #babcbf; */
+  font-family: var(--CalendarNumbers);
+  /* height: 5.55em; */
+}
+
+.calendar .prev-month .day,
+.calendar .next-month .day {
+  color: #bbb;
+}
+
+/*--------------------------------*/
+/*Events Layout*/
+/*---------------------------------*/
+
+.container__events_img {
+  width: 100%;
+  height: 650px;
+  text-align: center;
+  background: linear-gradient(
+      180deg,
+      rgba(209, 226, 188, 0.9) 0%,
+      rgba(160, 236, 247, 0.5)
+    ),
+    url(/images/mountain650x400.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.events__header {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.sign-in {
+  text-align: right;
+  padding-bottom: 10px;
+  color: var(--mainWhite);
+  font-family: "Open Sans";
+  font-size: 16px;
+}
+
+.current-date {
+  margin: 5px auto;
+  color: var(--mainWhite);
+  font-family: "Open Sans";
+  font-weight: 100;
+  font-size: 15px;
+  text-align: left;
+  padding-right: 60px;
+}
+
+.current-date h1 {
+  text-transform: uppercase;
+}
+
+.container__upcoming-events {
+  display: flex;
+  height: 350px;
+  width: auto;
+  padding-top: 20px;
+}
+
+.dates-list {
+  display: flex;
+  flex-direction: column;
+  border-right: 3px solid white;
+  margin: 5px auto;
+  padding: 15px;
+  color: var(--mainWhite);
+  font-family: "Montserrat";
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.events-list {
+  padding: 15px;
+  margin: 5px auto;
+  color: var(--mainWhite);
+  font-family: "Montserrat";
+  font-style: italic;
+  background-color: var(--secondaryDark);
+  opacity: 0.4;
+  border-radius: 4px;
+  text-align: left;
+  flex-wrap: wrap;
+  width: 50%;
+}
+
+.event__date {
+  flex-grow: 1;
+}
+
+.event__name {
+  flex-grow: 0.5;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 10px;
+}
+
+/*--------------------------------*/
+/*Media Queries*/
+/*---------------------------------*/
+
+@media only screen and (min-width: 30em) {
+  /*480*/
+  .calendar th,
+  .calendar td {
+    margin: 0;
+    width: 15%;
+  }
+}
+
+@media only screen and (min-width: 40em) and (min-height: 20em) {
+  .calendar td {
+    height: 2.5em;
+  }
+}
+@media only screen and (min-width: 40em) and (min-height: 40em) {
+  .calendar td {
+    height: 5.55em;
+  }
 }
