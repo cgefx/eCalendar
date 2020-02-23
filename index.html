@@ -7,319 +7,477 @@
     <title>eCalendar</title>
   </head>
   <body>
-    <div class="page">
-      <div class="container__app">
-        <!-- Left Arrow Column -->
-        <div class=" flex__column column__arrow">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="26">
-            <path
-              fill="#26B9CC"
-              fill-rule="nonzero"
-              d="M1.19 14.774l10.197 10.607c.376.413.845.619 1.408.619s1.032-.207 1.408-.62l1.189-1.221c.385-.402.578-.89.578-1.466 0-.565-.192-1.06-.578-1.483L7.79 13.308l7.602-7.919c.386-.402.579-.89.579-1.466 0-.565-.193-1.06-.58-1.482l-1.188-1.222a1.878 1.878 0 00-1.408-.603c-.552 0-1.022.2-1.407.603L1.19 11.825c-.386.424-.58.918-.58 1.483 0 .576.194 1.064.58 1.466z"
-            />
-          </svg>
+    <!-- Main Wrapper -->
+    <div class="wrapper">
+      <!-- Left Arrow Column -->
+      <div class=" flex__column column__arrow">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="26">
+          <path
+            fill="#26B9CC"
+            fill-rule="nonzero"
+            d="M1.19 14.774l10.197 10.607c.376.413.845.619 1.408.619s1.032-.207 1.408-.62l1.189-1.221c.385-.402.578-.89.578-1.466 0-.565-.192-1.06-.578-1.483L7.79 13.308l7.602-7.919c.386-.402.579-.89.579-1.466 0-.565-.193-1.06-.58-1.482l-1.188-1.222a1.878 1.878 0 00-1.408-.603c-.552 0-1.022.2-1.407.603L1.19 11.825c-.386.424-.58.918-.58 1.483 0 .576.194 1.064.58 1.466z"
+          />
+        </svg>
+      </div>
+
+      <!-- Calendar Column -->
+      <div class=" flex__column column__calendar">
+        <div class="calendar-header">
+          <h1 class="app-name">eCalendar</h1>
+          <h1 class="current-year">2019</h1>
         </div>
 
-        <!-- Calendar Column -->
-        <div class=" flex__column column__calendar">
-          <div class="calendar-header">
-            <h1 class="app-name">eCalendar</h1>
-            <h1 class="current-year">2019</h1>
-          </div>
-
-          <div class="month-header">
-            <p>January</p>
-            <p class="current">February</p>
-            <p>March</p>
-          </div>
-
-          <!-- Calendar Table -->
-          <div class="calendar-table">
-            <table class="calendar">
-              <thead class="week-header">
-                <tr>
-                  <th>Sun</th>
-                  <th>Mon</th>
-                  <th>Tue</th>
-                  <th>Wed</th>
-                  <th>Thu</th>
-                  <th>Fri</th>
-                  <th>Sat</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td class="prev-month">
-                    <h3 class="day">
-                      26
-                    </h3>
-                  </td>
-                  <td class="prev-month">
-                    <h3 class="day">
-                      27
-                    </h3>
-                  </td>
-                  <td class="prev-month">
-                    <h3 class="day">
-                      28
-                    </h3>
-                  </td>
-                  <td class="prev-month">
-                    <h3 class="day">
-                      29
-                    </h3>
-                  </td>
-                  <td class="prev-month">
-                    <h3 class="day">
-                      30
-                    </h3>
-                  </td>
-                  <td class="prev-month">
-                    <h3 class="day">
-                      31
-                    </h3>
-                  </td>
-                  <td>
-                    <h3 class="day">
-                      1
-                    </h3>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <h3 class="day">
-                      2
-                    </h3>
-                  </td>
-                  <td>
-                    <h3 class="day">
-                      3
-                    </h3>
-                  </td>
-                  <td>
-                    <h3 class="day">
-                      4
-                    </h3>
-                  </td>
-                  <td>
-                    <h3 class="day">
-                      5
-                    </h3>
-                  </td>
-                  <td>
-                    <h3 class="day">
-                      6
-                    </h3>
-                  </td>
-                  <td>
-                    <h3 class="day">
-                      7
-                    </h3>
-                  </td>
-                  <td>
-                    <h3 class="day">
-                      8
-                    </h3>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <h3 class="day">
-                      9
-                    </h3>
-                  </td>
-                  <td>
-                    <h3 class="day">
-                      10
-                    </h3>
-                  </td>
-                  <td>
-                    <h3 class="day">
-                      11
-                    </h3>
-                  </td>
-                  <td>
-                    <h3 class="day">
-                      12
-                    </h3>
-                  </td>
-                  <td>
-                    <h3 class="day">
-                      13
-                    </h3>
-                  </td>
-                  <td>
-                    <h3 class="day">
-                      14
-                    </h3>
-                  </td>
-                  <td>
-                    <h3 class="day">
-                      15
-                    </h3>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <h3 class="day">
-                      16
-                    </h3>
-                  </td>
-                  <td>
-                    <h3 class="day">
-                      17
-                    </h3>
-                  </td>
-                  <td>
-                    <h3 class="day">
-                      18
-                    </h3>
-                  </td>
-                  <td>
-                    <h3 class="day">
-                      19
-                    </h3>
-                  </td>
-                  <td>
-                    <h3 class="day">
-                      20
-                    </h3>
-                  </td>
-                  <td>
-                    <h3 class="day">
-                      21
-                    </h3>
-                  </td>
-                  <td>
-                    <h3 class="day">
-                      22
-                    </h3>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <h3 class="day">
-                      23
-                    </h3>
-                  </td>
-                  <td>
-                    <h3 class="day">
-                      24
-                    </h3>
-                  </td>
-                  <td>
-                    <h3 class="day">
-                      25
-                    </h3>
-                  </td>
-                  <td>
-                    <h3 class="day">
-                      26
-                    </h3>
-                  </td>
-                  <td>
-                    <h3 class="day">
-                      27
-                    </h3>
-                  </td>
-                  <td>
-                    <h3 class="day">
-                      28
-                    </h3>
-                  </td>
-                  <td>
-                    <h3 class="day">
-                      29
-                    </h3>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <h3 class="day">
-                      30
-                    </h3>
-                  </td>
-                  <td>
-                    <h3 class="day">
-                      31
-                    </h3>
-                  </td>
-                  <td class="next-month">
-                    <h3 class="day">
-                      1
-                    </h3>
-                  </td>
-                  <td class="next-month">
-                    <h3 class="day">
-                      2
-                    </h3>
-                  </td>
-                  <td class="next-month">
-                    <h3 class="day">
-                      3
-                    </h3>
-                  </td>
-                  <td class="next-month">
-                    <h3 class="day">
-                      4
-                    </h3>
-                  </td>
-                  <td class="next-month">
-                    <h3 class="day">
-                      5
-                    </h3>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+        <div class="month-header">
+          <p>January</p>
+          <p class="current">February</p>
+          <p>March</p>
         </div>
 
-        <!-- Right Arrow Column -->
-        <div class="flex__column column__arrow">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="26">
-            <path
-              fill="#26B9CC"
-              fill-rule="nonzero"
-              d="M15.14 11.493L4.702.633A1.866 1.866 0 003.263 0c-.577 0-1.057.211-1.441.634L.605 1.885a2.087 2.087 0 00-.592 1.501c0 .578.197 1.085.592 1.518l7.78 8.09-7.78 8.108a2.088 2.088 0 00-.593 1.501c0 .578.198 1.085.593 1.518l1.216 1.251c.395.412.876.617 1.441.617.566 0 1.046-.205 1.44-.617l10.437-10.86c.395-.433.593-.94.593-1.517 0-.59-.198-1.09-.593-1.502z"
-            />
-          </svg>
+        <!-- Calendar Table -->
+        <div class="calendar-table">
+          <table class="calendar">
+            <thead class="week-header">
+              <tr>
+                <th>Sun</th>
+                <th>Mon</th>
+                <th>Tue</th>
+                <th>Wed</th>
+                <th>Thu</th>
+                <th>Fri</th>
+                <th>Sat</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="prev-month">
+                  <h3 class="day">
+                    26
+                  </h3>
+                </td>
+                <td class="prev-month">
+                  <h3 class="day">
+                    27
+                  </h3>
+                </td>
+                <td class="prev-month">
+                  <h3 class="day">
+                    28
+                  </h3>
+                </td>
+                <td class="prev-month">
+                  <h3 class="day">
+                    29
+                  </h3>
+                </td>
+                <td class="prev-month">
+                  <h3 class="day">
+                    30
+                  </h3>
+                </td>
+                <td class="prev-month">
+                  <h3 class="day">
+                    31
+                  </h3>
+                </td>
+                <td>
+                  <h3 class="day">
+                    1
+                  </h3>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <h3 class="day">
+                    2
+                  </h3>
+                </td>
+                <td>
+                  <h3 class="day">
+                    3
+                  </h3>
+                </td>
+                <td>
+                  <h3 class="day">
+                    4
+                  </h3>
+                </td>
+                <td>
+                  <h3 class="day">
+                    5
+                  </h3>
+                </td>
+                <td>
+                  <h3 class="day">
+                    6
+                  </h3>
+                </td>
+                <td>
+                  <h3 class="day">
+                    7
+                  </h3>
+                </td>
+                <td>
+                  <h3 class="day">
+                    8
+                  </h3>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <h3 class="day">
+                    9
+                  </h3>
+                </td>
+                <td>
+                  <h3 class="day">
+                    10
+                  </h3>
+                </td>
+                <td>
+                  <h3 class="day">
+                    11
+                  </h3>
+                </td>
+                <td>
+                  <h3 class="day">
+                    12
+                  </h3>
+                </td>
+                <td>
+                  <h3 class="day">
+                    13
+                  </h3>
+                </td>
+                <td>
+                  <h3 class="day">
+                    14
+                  </h3>
+                </td>
+                <td>
+                  <h3 class="day">
+                    15
+                  </h3>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <h3 class="day">
+                    16
+                  </h3>
+                </td>
+                <td>
+                  <h3 class="day">
+                    17
+                  </h3>
+                </td>
+                <td>
+                  <h3 class="day">
+                    18
+                  </h3>
+                </td>
+                <td>
+                  <h3 class="day">
+                    19
+                  </h3>
+                </td>
+                <td>
+                  <h3 class="day">
+                    20
+                  </h3>
+                </td>
+                <td>
+                  <h3 class="day">
+                    21
+                  </h3>
+                </td>
+                <td class="current-day">
+                  <h3 class="day">
+                    22
+                  </h3>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <h3 class="day">
+                    23
+                  </h3>
+                </td>
+                <td>
+                  <h3 class="day">
+                    24
+                  </h3>
+                </td>
+                <td>
+                  <h3 class="day">
+                    25
+                  </h3>
+                </td>
+                <td>
+                  <h3 class="day">
+                    26
+                  </h3>
+                </td>
+                <td>
+                  <h3 class="day">
+                    27
+                  </h3>
+                </td>
+                <td>
+                  <h3 class="day">
+                    28
+                  </h3>
+                </td>
+                <td>
+                  <h3 class="day">
+                    29
+                  </h3>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <h3 class="day">
+                    30
+                  </h3>
+                </td>
+                <td>
+                  <h3 class="day">
+                    31
+                  </h3>
+                </td>
+                <td class="next-month">
+                  <h3 class="day">
+                    1
+                  </h3>
+                </td>
+                <td class="next-month">
+                  <h3 class="day">
+                    2
+                  </h3>
+                </td>
+                <td class="next-month">
+                  <h3 class="day">
+                    3
+                  </h3>
+                </td>
+                <td class="next-month">
+                  <h3 class="day">
+                    4
+                  </h3>
+                </td>
+                <td class="next-month">
+                  <h3 class="day">
+                    5
+                  </h3>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
+      </div>
 
-        <!-- Event Column -->
-        <div class=" flex__column column__events">
-          <div class="container__events_img">
-            <div class="background-image"></div>
+      <!-- Right Arrow Column -->
+      <div class="flex__column column__arrow">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="26">
+          <path
+            fill="#26B9CC"
+            fill-rule="nonzero"
+            d="M15.14 11.493L4.702.633A1.866 1.866 0 003.263 0c-.577 0-1.057.211-1.441.634L.605 1.885a2.087 2.087 0 00-.592 1.501c0 .578.197 1.085.592 1.518l7.78 8.09-7.78 8.108a2.088 2.088 0 00-.593 1.501c0 .578.198 1.085.593 1.518l1.216 1.251c.395.412.876.617 1.441.617.566 0 1.046-.205 1.44-.617l10.437-10.86c.395-.433.593-.94.593-1.517 0-.59-.198-1.09-.593-1.502z"
+          />
+        </svg>
+      </div>
 
-            <div class="events__header">
-              <div class="sign-in">
-                <h5>
-                  Sign-in
-                </h5>
-              </div>
-
-              <div class="current-date">
-                <h4>Friday</h4>
-                <h1>February 21</h1>
-              </div>
+      <!-- Event Column -->
+      <div class=" flex__column column__events">
+        <div class="container__events_img">
+          <div class="events__header">
+            <div class="sign-in">
+              <a class="sign-in__link" href="">
+                <p>
+                Sign-In
+              </p>
+            </a>
             </div>
 
-            <div class="container__upcoming-events">
-              <div class="dates-list">
-                <div class="event__date">5</div>
-                <div class="event__date">12</div>
-                <div class="event__date">21</div>
-              </div>
-
-              <div class="events-list">
-                <h3 class="event__name">Dentist Appointment</h3>
-                <h3 class="event__name">Ashley's Birthday</h3>
-                <h3 class="event__name">Proposal Date</h3>
-              </div>
+            <div class="current-date">
+              <h4>Friday</h4>
+              <h1>February 21</h1>
             </div>
+          </div>
+
+          <div class="container__upcoming-events">
+            <div class="dates-list">
+              <div class="event__date">5</div>
+              <div class="event__date">12</div>
+              <div class="event__date">21</div>
+            </div>
+
+            <div class="events-list">
+              <h3 class="event__name">Dentist Appointment</h3>
+              <h3 class="event__name">Ashley's Birthday</h3>
+              <h3 class="event__name">Proposal Date</h3>
+            </div>
+          </div>
+          <div class="event-add">
+            <h4 class="event-add__title">Add an event</h4>
+              <a class="event-add__button modal-trigger href="">
+                <svg width="40" height="40" xmlns="http://www.w3.org/2000/svg">
+                  <g fill="none" fill-rule="evenodd">
+                    <circle fill="#FFF" cx="20" cy="20" r="20" />
+                    <path
+                      fill="#26B9CC"
+                      d="M18.605 11.163h2.791v18.605h-2.791z"
+                    />
+                    <path fill="#26B9CC" d="M29.302 19.07v2.79H10.698v-2.79z" />
+                  </g>
+                </svg>
+              </a>
           </div>
         </div>
       </div>
+    </div> 
+    <!-- end App Wrapper -->
+
+    <!-- Modal -->
+    <div class="modal">
+      <div class="modal-content">
+          <span class="close-button">×</span>
+          <div class="form-wrapper">
+            <form>
+              <div class="form__input-block">
+                <label class="form__heading" for="name"></label>
+                <input id="name" type="text" required="required" placeholder="Event"/>
+                <div class="border"></div>
+              </div>
+  
+              <div class="form__dropdown-row">
+                <h4 class="form__dropdown-header">Start Date</h4>
+                <div class="form__dropdown-item">
+                  <label for="start-month"></label>
+                  <select class="form__select"  name="start-month" id="start-month">
+                      <option selected>Month</option>
+                      <option value="1">Jan</option>
+                      <option value="2">Feb</option>
+                      <option value="3">Mar</option>
+                      <option value="4">Apr</option>
+                      <option value="5">May</option>
+                      <option value="6">Jun</option>
+                      <option value="7">Jul</option>
+                      <option value="8">Aug</option>
+                      <option value="9">Sep</option>
+                      <option value="10">Oct</option>
+                      <option value="11">Nov</option>
+                      <option value="12">Dec</option>
+                  </select>
+                </div>
+              <div class="form__dropdown-item">
+                <label for="start-day"></label>
+                <select class="form__select" name="start-day" id="start-day">
+                    <option selected>Day</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">Oct</option>
+                    <option value="11">Nov</option>
+                    <option value="13">Dec</option>
+                    <option value="14">Dec</option>
+                    <option value="15">Dec</option>
+                    <option value="16">Dec</option>
+                    <option value="17">Dec</option>
+                    <option value="18">Dec</option>
+                    <option value="19">Dec</option>
+                    <option value="20">Dec</option>
+                    <option value="21">Dec</option>
+                    <option value="22">Dec</option>
+                    <option value="23">Dec</option>
+                    <option value="24">Dec</option>
+                    <option value="25">Dec</option>
+                    <option value="26">Dec</option>
+                    <option value="27">Dec</option>
+                    <option value="28">Dec</option>
+                    <option value="29">Dec</option>
+                    <option value="30">Dec</option>
+                    <option value="31">Dec</option>
+                </select>
+              </div>
+              <h4 class="form__dropdown-header">End Date</h4>
+              <div class="form__dropdown-item">
+                <label for="end-month"></label>
+                <select class="form__select"  name="end-month" id="end-month">
+                    <option selected>Month</option>
+                    <option value="1">Jan</option>
+                    <option value="2">Feb</option>
+                    <option value="3">Mar</option>
+                    <option value="4">Apr</option>
+                    <option value="5">May</option>
+                    <option value="6">Jun</option>
+                    <option value="7">Jul</option>
+                    <option value="8">Aug</option>
+                    <option value="9">Sep</option>
+                    <option value="10">Oct</option>
+                    <option value="11">Nov</option>
+                    <option value="12">Dec</option>
+                </select>
+              </div>
+            <div class="form__dropdown-item">
+              <label for="end-day"></label>
+              <select class="form__select" name="end-day" id="end-day">
+                  <option selected>Day</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">Oct</option>
+                  <option value="11">Nov</option>
+                  <option value="13">Dec</option>
+                  <option value="14">Dec</option>
+                  <option value="15">Dec</option>
+                  <option value="16">Dec</option>
+                  <option value="17">Dec</option>
+                  <option value="18">Dec</option>
+                  <option value="19">Dec</option>
+                  <option value="20">Dec</option>
+                  <option value="21">Dec</option>
+                  <option value="22">Dec</option>
+                  <option value="23">Dec</option>
+                  <option value="24">Dec</option>
+                  <option value="25">Dec</option>
+                  <option value="26">Dec</option>
+                  <option value="27">Dec</option>
+                  <option value="28">Dec</option>
+                  <option value="29">Dec</option>
+                  <option value="30">Dec</option>
+                  <option value="31">Dec</option>
+              </select>
+            </div>
+            </div>
+            <!-- end dropdown row -->
+            <div class="form__details">
+              <div class="form__detail">
+                <p>People</p>
+              </div>
+              <div class="form__detail">
+                <p>Location</p>
+              </div>
+              <div class="form__detail">
+                <p>Item</p>
+              </div>
+            </div>
+          <button type="submit">Save Event</button>
+        </form>
+      </div>
     </div>
+  </div>
+  <script src="js/modal.js"></script>
   </body>
 </html>

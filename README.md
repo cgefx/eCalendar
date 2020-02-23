@@ -8,14 +8,14 @@ General instructions for all Pre-Work Projects can also be found in the Chingu V
 
 ### *Structure:*
 
-- [ ] Page divided into calendar potion and event list portion.
+- [x] Page divided into calendar potion and event list portion.
 
 - [ ] **Calendar** portion to have:
 
   - [ ] Title and Current year in header.
   - [ ] Current month between previous and upcoming month.
   - [ ] Calendar dates of the month with display of previous month’s last dates if first day of current month does not start on a Sunday.
-  - [ ] Arrows bordering the body of the calendar.
+  - [x] Arrows bordering the body of the calendar.
 
 - [ ] **Event** portion to have:
 
@@ -32,7 +32,7 @@ General instructions for all Pre-Work Projects can also be found in the Chingu V
 - [ ] Previous month dates greyed out  `#696868`
 - [ ] Current month weekend dates and weekdays separate colors `#7cc0c9` `#839395`
 - [ ] Current date highlighted in a circular div `#26B9CC`
-- [ ] Gradient over background image (provided in assets folder)
+- [x] Gradient over background image (provided in assets folder)
 - [ ] Use corresponding fonts per section of the calendar page.
 - [ ] Invisible scroll bar for event section.
 - [ ] Event list should have at minimum three demo events hard coded in with the date on the *left of the horizontal bar* and the event name *on the right*

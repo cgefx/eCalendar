@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 63.1 (92452) - https://sketch.com -->
+    <title>Add Button</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard" transform="translate(-431.000000, -350.000000)">
+            <g id="Add-Button" transform="translate(431.000000, 350.000000)">
+                <circle id="Oval" fill="#FFFFFF" cx="12" cy="12" r="12"></circle>
+                <rect id="Rectangle" fill="#26B9CC" x="11.1627907" y="6.69767442" width="1.6744186" height="11.1627907"></rect>
+                <rect id="Rectangle-Copy" fill="#26B9CC" transform="translate(12.000000, 12.279070) rotate(90.000000) translate(-12.000000, -12.279070) " x="11.1627907" y="6.69767442" width="1.6744186" height="11.1627907"></rect>
+            </g>
+        </g>
+    </g>
+</svg>
