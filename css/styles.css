@@ -31,6 +31,11 @@
 /* Basic Setup */
 /*---------------------------------*/
 
+i.fas,
+i.far {
+  color: var(--colorPrimary);
+}
+
 /*--------------------------------*/
 /* App Layout */
 /*---------------------------------*/
@@ -38,27 +43,40 @@
 .wrapper {
   display: flex;
   max-width: 1408px;
+  /* max-height: 650px; */
   margin: 0 auto;
   padding: 150px 10px 150px 10px;
   justify-content: space-around;
 }
 
 .column__arrow {
-  flex-grow: 0;
+  flex: shrink;
   align-self: center;
+  font-size: 32px;
 }
 
 .column__calendar {
   flex-grow: 3;
   margin: 0 60px 0 60px;
   padding: 20px;
+  flex: shrink;
 }
 
 .column__events {
-  flex-grow: 0.5;
+  flex-grow: 1;
   margin: 20px 0 0 40px;
   padding: 20px;
   z-index: 0;
+  max-height: 650px;
+  width: auto;
+}
+
+/*--------------------------------*/
+/*Arrow  Columns*/
+/*---------------------------------*/
+
+.column__arrow i:hover {
+  cursor: pointer;
 }
 
 /*--------------------------------*/
@@ -90,12 +108,13 @@
   flex-direction: row;
   align-items: flex-end;
   justify-content: space-around;
-  padding-bottom: 10px;
+  /* padding-bottom: 5px; */
   color: var(--colorSecondary);
   font-family: var(--CalendarMonths);
   text-transform: uppercase;
   font-size: 12px;
   border-bottom: 1.5px solid var(--mainDark);
+  margin-bottom: 1em;
 }
 
 .month-header .current {
@@ -118,26 +137,36 @@
 /*Calendar Table*/
 /*---------------------------------*/
 
-.calendar th {
+.calendar__week-header {
   color: var(--secondaryDark);
   text-transform: uppercase;
   font-family: var(--CalendarWeekdays);
   padding-top: 20px;
+  margin-top: 20px;
 }
 
 .calendar td {
   /* border: 1px solid #babcbf; */
   font-family: var(--CalendarNumbers);
-  height: 5.55em;
+  /* height: 5.55em; */
   /* text-align: center; */
+  line-height: 0;
 }
 
 .current-day {
   background: var(--colorPrimary);
   color: var(--mainWhite);
-  width: 100%;
+  margin: 0;
+  padding: 0;
   border-radius: 50%;
-  line-height: 0;
+}
+
+.calendar_week-header--weekend {
+  color: var(--colorSecondary);
+}
+
+.current-day-of-week {
+  color: var(--colorPrimary);
 }
 
 .calendar .prev-month .day,
@@ -188,23 +217,31 @@
 }
 
 .current-date {
+  text-align: left;
+  padding-left: 4em;
+}
+
+.current-date h4 {
   margin: 0 auto;
   color: var(--mainWhite);
-  font-family: "Open Sans";
-  font-weight: 100;
-  font-size: 15px;
-  text-align: left;
-  padding-right: 60px;
+  font-family: "Montserrat";
+  font-size: 20px;
+  font-weight: 400;
 }
 
 .current-date h1 {
   text-transform: uppercase;
+  font-family: "Montserrat";
+  color: var(--mainWhite);
+  font-size: 32px;
+  font-weight: 400;
 }
 
 .container__upcoming-events {
   padding: 20px;
+  position: relative;
   display: flex;
-  min-height: 350px;
+  height: 350px;
   width: auto;
 }
 
@@ -218,6 +255,7 @@
   font-family: "Montserrat";
   font-weight: 700;
   font-size: 20px;
+  overflow: auto;
 }
 
 .events-list {
@@ -232,6 +270,17 @@
   text-align: left;
   flex-wrap: wrap;
   width: 50%;
+  overflow: auto;
+}
+
+.events-list::-webkit-scrollbar {
+  display: none;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  width: 0;
+  height: 0;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .event__date {
@@ -250,16 +299,15 @@
   padding: 15px 40px 10px 0px;
   height: auto;
   /* margin: 0 30px 0px 0px; */
-  color: var(--mainWhite);
-  font-family: "Open Sans";
-  font-weight: 100;
-  font-size: 16px;
   align-items: center;
 }
 
 .event-add__title {
   margin-right: 15px;
   color: var(--mainWhite);
+  font-family: "Montserrat";
+  font-size: 20px;
+  font-weight: 400;
 }
 
 .event-add__button {
@@ -297,11 +345,11 @@
   transform: translate(-50%, -50%);
   background-color: white;
   box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.5);
-  padding: 1rem 2.5rem;
-  width: 650px;
-  max-width: 100%;
-  height: 300px;
+  padding: 1rem 4rem;
+  margin: 1rem;
+  width: 50%;
   max-height: 100%;
+  height: 350px;
 }
 
 .show-modal {
@@ -316,7 +364,18 @@
 /*---------------------------------*/
 
 .form-wrapper {
-  padding-top: 30px;
+  margin-top: 30px;
+  width: auto;
+}
+
+.close-button {
+  float: right;
+  width: 1.5rem;
+  line-height: 1.5rem;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 0.25rem;
+  padding: 20px;
 }
 
 form {
@@ -326,9 +385,9 @@ form {
 }
 
 .form__input-block {
-  width: 60%;
+  width: 69%;
   margin-right: 3.3%;
-  margin-bottom: 30px;
+  margin-bottom: 1.5em;
 }
 
 .form__input-block input {
@@ -338,8 +397,9 @@ form {
   border-bottom: 1px solid var(--secondaryDark);
   padding-bottom: 5px;
   font-family: "Montserrat";
+  color: var(--secondaryDark);
   font-size: 28px;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 .form__input-block input::placeholder {
@@ -349,20 +409,56 @@ form {
   font-weight: 400;
 }
 
-.form__dropdown-row {
-  display: inline-flex;
-}
-
 .form__dropdown-header {
-  margin: 0px 20px 0px 0px;
+  margin: 0px 2em 0px 0px;
   font-family: "Montserrat";
   font-size: 14px;
   font-weight: 400;
   color: var(--colorPrimary);
 }
+
+.form__dropdown-row {
+  display: flex;
+  padding-bottom: 1em;
+}
+
 .form__dropdown-item {
-  flex: 1;
-  margin: 0px 35px 0px 0px;
+  flex: 0.3em;
+  width: auto;
+  margin: 0 auto;
+}
+
+select:hover {
+  cursor: pointer;
+  -webkit-appearance: menulist-button;
+}
+
+.form__details {
+  margin: 0 auto;
+  padding: 10px;
+  height: auto;
+}
+
+.form__detail {
+  display: flex;
+  margin: 0 auto;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  width: fit-content;
+}
+
+.form__icon {
+  padding-right: 1em;
+}
+
+.form__subheading {
+  font-family: "Montserrat";
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--secondaryDark);
+  padding: 0.75em;
+  margin: 0;
 }
 
 select {
@@ -376,6 +472,12 @@ select {
   color: var(--secondaryDark);
 }
 
+.form__button-row {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 2em;
+}
+
 form button[type="submit"] {
   border: 0px;
   outline: 0px;
@@ -383,23 +485,11 @@ form button[type="submit"] {
   background-color: var(--colorPrimary);
   font-family: "Lato", sans-serif;
   font-size: 18px;
-  padding: 2px 12px;
+  padding: 2px 14px;
   border-radius: 5px;
   cursor: pointer;
   transition: all 0.3s linear 0s;
-}
-
-.close-button {
-  float: right;
-  width: 1.5rem;
-  line-height: 1.5rem;
-  text-align: center;
-  cursor: pointer;
-  border-radius: 0.25rem;
-  padding: 20px;
-}
-.close-button:hover {
-  background-color: darkgray;
+  margin: 0;
 }
 
 /*--------------------------------*/
