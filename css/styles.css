@@ -117,7 +117,7 @@ i.far {
   margin-bottom: 1em;
 }
 
-.month-header .current {
+.current-month {
   color: var(--colorPrimary);
   font-weight: bold;
 }
@@ -133,14 +133,11 @@ i.far {
   padding-top: 50px;
 }
 
-/*--------------------------------*/
-/*Calendar Table*/
-/*---------------------------------*/
-
 .calendar__week-header {
   color: var(--secondaryDark);
   text-transform: uppercase;
   font-family: var(--CalendarWeekdays);
+  font-weight: 100;
   padding-top: 20px;
   margin-top: 20px;
 }

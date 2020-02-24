@@ -15,20 +15,20 @@
     <div class="wrapper">
       <!-- Left Arrow Column -->
       <div class="column__arrow">
-        <i class="fas fa-chevron-left"></i>
+        <i class=" go-to-prev fas fa-chevron-left"></i>
       </div>
 
       <!-- Calendar Column -->
       <div class=" flex__column column__calendar">
         <div class="calendar-header">
           <h1 class="app-name">eCalendar</h1>
-          <h1 class="current-year">2019</h1>
+          <h1 class="current-year" id="current-year"></h1>
         </div>
 
-        <div class="month-header">
-          <p>January</p>
-          <p class="current">February</p>
-          <p>March</p>
+        <div class="month-header" id="months-header">
+          <!-- <p>January</p>
+          <p class="current-month">February</p>
+          <p>March</p> -->
         </div>
 
         <!-- Calendar Table -->
@@ -47,8 +47,8 @@
                 <th class="calendar_week-header--weekend">Sat</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
+            <tbody class="calendar-body" id="calendar-body">
+              <!-- <tr>
                 <td class="prev-month">
                   <h3 class="day">
                     26
@@ -197,7 +197,7 @@
                 </td>
               </tr>
               <tr>
-                <td class="current-day">
+                <td>
                   <h3 class="day">
                     23
                   </h3>
@@ -270,6 +270,7 @@
                   </h3>
                 </td>
               </tr>
+            </tbody> -->
             </tbody>
           </table>
         </div>
@@ -277,7 +278,7 @@
 
       <!-- Right Arrow Column -->
       <div class="column__arrow">
-        <i class="fas fa-chevron-right"></i>
+        <i class=" go-to-next fas fa-chevron-right"></i>
       </div>
 
       <!-- Event Column -->
@@ -293,8 +294,8 @@
             </div>
 
             <div class="current-date">
-              <h4>Friday</h4>
-              <h1>February 21</h1>
+              <h4 id="current-day"></h4>
+              <h1 id="month-and-date"></h1>
             </div>
           </div>
 
@@ -330,8 +331,9 @@
           </div>
         </div>
       </div>
+
+      <!-- App Wrapper Ends -->
     </div>
-    <!-- end App Wrapper -->
 
     <!-- Modal -->
     <div class="modal">
@@ -467,6 +469,8 @@
               </div>
             </div>
             <!-- end dropdown row -->
+
+            <!-- Details Sidebar -->
             <div class="form__details">
               <div class="form__detail">
                 <i class=" form__icon fas fa-user-plus"></i>
@@ -481,6 +485,8 @@
                 <h4 class="form__subheading">Description</h4>
               </div>
             </div>
+
+            <!-- Button Row -->
             <div class="form__button-row">
               <button type="submit">Save Event</button>
             </div>
@@ -488,6 +494,8 @@
         </div>
       </div>
     </div>
+    <!-- End Modal -->
+    <script src="js/calendar.js"></script>
     <script src="js/modal.js"></script>
   </body>
 </html>
