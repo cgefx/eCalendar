@@ -21,21 +21,19 @@
       <!-- Calendar Column -->
       <div class=" flex__column column__calendar">
         <div class="calendar-header">
-          <h1 class="app-name">eCalendar</h1>
-          <h1 class="current-year" id="current-year"></h1>
+          <h1 class="app-name">
+            eCalendar
+          </h1>
+          <h1 class="current-year"></h1>
         </div>
 
-        <div class="month-header" id="months-header">
-          <!-- <p>January</p>
-          <p class="current-month">February</p>
-          <p>March</p> -->
-        </div>
+        <div class="month-header"></div>
 
         <!-- Calendar Table -->
         <div class="calendar-table">
           <table class="calendar">
             <thead class="calendar__week-header"></thead>
-            <tbody class="calendar-body" id="calendar-body"></tbody>
+            <tbody class="calendar__body"></tbody>
           </table>
         </div>
       </div>
@@ -58,8 +56,8 @@
             </div>
 
             <div class="current-date">
-              <h4 id="current-day"></h4>
-              <h1 id="month-and-date"></h1>
+              <h4 class="events__heading--current-day"></h4>
+              <h1 class="events__heading--month-and-date"></h1>
             </div>
           </div>
 
@@ -83,7 +81,10 @@
           </div>
 
           <div class="event-add">
-            <h4 class="event-add__title">Add an event</h4>
+            <h4 class="event-add__title">
+              Add An Event
+            </h4>
+            <!-- Add Button -->
             <a class="event-add__button modal-trigger href="#"/>
             <svg width="40" height="40" xmlns="http://www.w3.org/2000/svg">
               <g fill="none" fill-rule="evenodd">
@@ -95,9 +96,9 @@
           </div>
         </div>
       </div>
-
-      <!-- App Wrapper Ends -->
+      <!-- Events End -->
     </div>
+    <!-- Wrapper End -->
 
     <!-- Modal -->
     <div class="modal">

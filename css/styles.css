@@ -2,7 +2,7 @@
 /* Imports*/
 /*---------------------------------*/
 
-@import url("https://fonts.googleapis.com/css?family=Montserrat:100, 200, 300,400,400i,500,700|Open+Sans+Condensed:300, 400|Open+Sans:100, 200, 300,400,400i,700&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Montserrat:100, 200, 300i,400,400i,500,600i,700|Open+Sans+Condensed:300, 400|Open+Sans:100, 200, 300,400,400i,700&display=swap");
 
 /*--------------------------------*/
 /* Variables */
@@ -13,22 +13,22 @@
   --colorSecondary: #7cc0c9;
   --mainDark: #839395;
   --secondaryDark: #696868;
-
-  /* --CalendarTitle: "Montserrat";
-  --CalendarYear: "Montserrat";
-  --CalendarMonths: "Montserrat";
-  --CalendarWeekdays: "Montserrat";
-
-  --CalendarNumbers: "Open Sans Condensed"; */
 }
 
 /*--------------------------------*/
 /* Basic Setup */
 /*---------------------------------*/
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
 
-i.fas,
-i.far {
-  color: var(--colorPrimary);
+html,
+body {
+  background-color: #fff;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 /*--------------------------------*/
@@ -38,15 +38,16 @@ i.far {
 .wrapper {
   display: flex;
   max-width: 1408px;
-  /* max-height: 650px; */
-  margin: 0 auto;
-  padding: 150px 20px;
+  margin: 0.5rem auto;
+  padding: 16px 16px;
   justify-content: space-around;
 }
 
 .column__arrow {
-  /* flex: shrink; */
+  display: flex;
   align-self: center;
+  justify-content: center;
+  align-items: center;
   padding: 10px;
   margin: 0 auto;
   font-size: 32px;
@@ -55,26 +56,27 @@ i.far {
 
 .column__calendar {
   flex-grow: 1;
-  margin: 0 20px;
-  padding: 20px;
+  margin: 20px;
 }
 
 .column__events {
   flex-grow: 0.1;
   margin: 0 auto;
-  padding-left: 20px;
-  padding-top: 40px;
-  z-index: 0;
-  max-height: 700px;
+  max-height: 100%;
   width: auto;
 }
 
 /*--------------------------------*/
-/*Arrow  Icon Columns*/
+/*Arrow Icon Columns*/
 /*---------------------------------*/
 
 .column__arrow i:hover {
   cursor: pointer;
+}
+
+i.fas,
+i.far {
+  color: var(--colorPrimary);
 }
 
 /*--------------------------------*/
@@ -82,8 +84,10 @@ i.far {
 /*---------------------------------*/
 
 .calendar-header {
-  height: 135px;
+  max-height: 135px;
   display: flex;
+  margin: 0 16px;
+  padding: 16px;
   flex-direction: row;
   align-items: flex-end;
   justify-content: space-between;
@@ -97,7 +101,7 @@ i.far {
 
 .current-year {
   font-family: "Montserrat";
-  font-weight: 300;
+  font-weight: 400;
 }
 
 .month-header {
@@ -126,15 +130,19 @@ i.far {
   border-collapse: collapse;
   border-spacing: 0;
   text-align: center;
-  margin: auto 0;
+  margin: auto 16px;
   padding-top: 50px;
   color: var(--secondaryDark);
   font-family: "Open Sans Condensed";
-  font-weight: bold;
+  font-weight: bolder;
 }
 
 .calendar td {
   height: 5em;
+}
+
+.calendar-table {
+  display: flex;
 }
 
 .calendar__week-header {
@@ -190,35 +198,38 @@ i.far {
   z-index: 1;
 }
 
-.events__header {
-  display: flex;
-  flex-direction: column;
-}
-
 .sign-in {
-  text-align: right;
-  padding: 10px 30px 0px 0px;
+  display: flex;
+  justify-content: flex-end;
+  padding: 5px 30px 0px 0px;
+  min-height: 65px;
 }
 
 .sign-in__link {
-  color: var(--mainWhite);
-  font-family: "Open Sans";
-  font-size: 16px;
   text-decoration: none;
 }
 
-.sign-in__link:hover {
+.sign-in__link p {
+  color: var(--mainWhite);
+  font-family: "Open Sans";
+  font-size: 16px;
+  max-height: 65px;
+}
+
+.sign-in__link p:hover {
   cursor: pointer;
-  border-bottom: 3px solid var(--mainWhite);
+  padding-bottom: 2px;
+  border-bottom: 2px solid var(--mainWhite);
+  max-height: 66px;
 }
 
 .current-date {
   text-align: left;
-  padding-left: 4em;
+  padding: 4px 3.5em 8px 3.5em;
 }
 
 .current-date h4 {
-  margin: 0 auto;
+  margin: 0px auto 10px auto;
   color: var(--mainWhite);
   font-family: "Montserrat";
   font-size: 20px;
@@ -231,6 +242,8 @@ i.far {
   color: var(--mainWhite);
   font-size: 32px;
   font-weight: 400;
+  padding: 2px;
+  margin: 0 auto;
 }
 
 .container__upcoming-events {
@@ -238,7 +251,7 @@ i.far {
   position: relative;
   display: flex;
   height: 350px;
-  margin: 20px 0;
+  margin: 30px 0 20px 0;
   width: auto;
 }
 
@@ -246,37 +259,28 @@ i.far {
   display: flex;
   flex-direction: column;
   border-right: 3px solid white;
-  margin: 5px;
-  padding: 15px;
+  padding: 20px;
   color: var(--mainWhite);
   font-family: "Montserrat";
   font-weight: 700;
-  font-size: 20px;
+  font-size: 22px;
+  font-style: italic;
   overflow: auto;
 }
 
 .events-list {
-  padding: 0 1.75em;
+  padding: 0 1em;
   margin: 2px auto;
-  background-color: var(--secondaryDark);
-  opacity: 0.4;
+  background: rgba(105, 104, 104, 0.25);
   border-radius: 5px;
   flex-wrap: wrap;
-  max-width: 40%;
-  overflow: auto;
+  max-width: 55%;
+  overflow-y: scroll;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
 }
 
-.event__name {
-  /* flex-grow: 0.5; */
-  padding: 5px 30px 30px 10px;
-  margin: 5px auto;
-  color: var(--mainWhite);
-  font-family: "Montserrat";
-  font-style: italic;
-  text-align: left;
-  font-size: 1.2em;
-}
-
+/* Chrome and others... */
 .events-list::-webkit-scrollbar {
   display: none;
   scrollbar-width: none;
@@ -287,6 +291,17 @@ i.far {
   overflow-x: hidden;
 }
 
+.event__name {
+  padding: 10px;
+  margin: 5px auto;
+  color: var(--mainWhite);
+  font-family: "Montserrat";
+  font-weight: 500;
+  font-style: italic;
+  text-align: left;
+  font-size: 1.25em;
+}
+
 .event__date {
   flex-grow: 1;
 }
@@ -294,7 +309,7 @@ i.far {
 .event-add {
   display: flex;
   justify-content: flex-end;
-  padding: 15px 40px 20px 0px;
+  padding: 15px 40px 0px 0px;
   height: auto;
   align-items: center;
 }
@@ -342,12 +357,11 @@ i.far {
   transform: translate(-50%, -50%);
   background-color: white;
   box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.5);
-  padding: 1rem 4rem;
-  margin: 1rem;
-  width: 650px;
-  max-width: 60%;
+  padding: 2rem 4rem;
+  width: 750px;
+  max-width: 100%;
   max-height: 100%;
-  height: 350px;
+  height: 375px;
 }
 
 .show-modal {
@@ -383,7 +397,7 @@ form {
 }
 
 .form__input-block {
-  width: 69%;
+  width: 75%;
   margin-right: 3.3%;
   margin-bottom: 1.5em;
 }
@@ -397,14 +411,14 @@ form {
   font-family: "Montserrat";
   color: var(--secondaryDark);
   font-size: 28px;
-  font-weight: 400;
+  font-weight: 250;
 }
 
 .form__input-block input::placeholder {
   color: var(--colorPrimary);
   font-family: "Montserrat";
-  font-size: 28px;
-  font-weight: 400;
+  font-size: 32px;
+  font-weight: 300;
 }
 
 .form__dropdown-header {
@@ -417,7 +431,9 @@ form {
 
 .form__dropdown-row {
   display: flex;
-  padding-bottom: 1em;
+  padding: 0;
+  margin-top: 8px;
+  min-height: 30px;
 }
 
 .form__dropdown-item {
@@ -433,8 +449,7 @@ select:hover {
 
 .form__details {
   margin: 0 auto;
-  padding: 10px;
-  height: auto;
+  padding: 4px;
 }
 
 .form__detail {
@@ -455,7 +470,7 @@ select:hover {
   font-size: 18px;
   font-weight: 400;
   color: var(--secondaryDark);
-  padding: 0.75em;
+  padding: 0.5em;
   margin: 0;
 }
 
@@ -464,7 +479,6 @@ select {
   border: none;
   background: var(--mainWhite);
   padding-right: 10px;
-  font-family: "Montserrat";
   font-size: 14px;
   font-weight: 400;
   color: var(--secondaryDark);
@@ -473,7 +487,6 @@ select {
 .form__button-row {
   display: flex;
   justify-content: flex-end;
-  margin-bottom: 2em;
 }
 
 form button[type="submit"] {
@@ -481,9 +494,10 @@ form button[type="submit"] {
   outline: 0px;
   color: var(--mainWhite);
   background-color: var(--colorPrimary);
-  font-family: "Lato", sans-serif;
+  font-family: "Montserrat";
   font-size: 18px;
-  padding: 2px 14px;
+  font-weight: 500;
+  padding: 2px 16px;
   border-radius: 5px;
   cursor: pointer;
   transition: all 0.3s linear 0s;
@@ -491,25 +505,5 @@ form button[type="submit"] {
 }
 
 /*--------------------------------*/
-/*Media Queries*/
+/*Media Queries - TODO*/
 /*---------------------------------*/
-
-@media only screen and (min-width: 30em) {
-  /*480*/
-  .calendar th,
-  .calendar td {
-    /* margin: 0;
-    width: 15%; */
-  }
-}
-
-@media only screen and (min-width: 40em) and (min-height: 20em) {
-  .calendar td {
-    /* height: 2.5em; */
-  }
-}
-@media only screen and (min-width: 40em) and (min-height: 40em) {
-  .calendar td {
-    /* height: 5.55em; */
-  }
-}

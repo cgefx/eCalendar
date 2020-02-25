@@ -10,16 +10,25 @@ let currentYear = today.getFullYear();
 let nextMonth = currentMonth + 1;
 let prevMonth = currentMonth - 1;
 
-//Get DOM Elements
-const yearHeader = document.getElementById("current-year");
-const currentDay = document.getElementById("current-day")
-const monthAndDate = document.getElementById("month-and-date")
+//Calendar
+const yearHeader = document.querySelector(".current-year");
+const monthsHeader = document.querySelector(".month-header");
+const calendarWeekHeader = document.querySelector(".calendar__week-header");
+const calendarTable = document.querySelector(".calendar__body");
+
+// Events
+const currentDay = document.querySelector(".events__heading--current-day");
+const monthAndDate = document.querySelector(".events__heading--month-and-date");
+
+// Prev/Next Arrows
 const previousArrow = document.querySelector(".go-to-prev");
 const nextArrow = document.querySelector(".go-to-next");
-const calendarWeekHeader = document.querySelector(".calendar__week-header")
-const calendarTable = document.getElementById("calendar-body");
 
-function showCalendar(month, year) {
+//Event Listeners 
+previousArrow.addEventListener("click", previous);
+nextArrow.addEventListener("click", next);
+
+function showCalendar(currentMonth, year) {
   yearHeader.innerHTML = year;
   calendarWeekHeader.innerHTML = "";
   calendarTable.innerHTML = "";
@@ -41,14 +50,14 @@ function showCalendar(month, year) {
   }
   calendarWeekHeader.appendChild(headerRow);
 
-  //Getting Numerical Dates to render
+  //Getting numerical dates to render in calendar Body
   const daysPrevMonth = getLeadingDays(currentMonth, currentYear);
   const daysThisMonth = getMonthDays(currentMonth, currentYear);
   const daysNextMonth = getTrailingDays(daysPrevMonth, daysThisMonth);
 
   let daysToRender = [...daysPrevMonth, ...daysThisMonth, ...daysNextMonth];
 
-  //Building the Calendar Table Body 
+  //Building the Calendar table body 
   let dayToRender = 0;
   let isMonthCurrent = false;
   for (let i = 0; i < 6; i++) {
@@ -62,7 +71,6 @@ function showCalendar(month, year) {
       if (!isMonthCurrent) {
         cell.classList.add("not-current-month");
       }
-
       if (
         daysToRender[dayToRender] === today.getDate() &&
         currentYear === today.getFullYear() &&
@@ -79,42 +87,44 @@ function showCalendar(month, year) {
     }
     calendarTable.appendChild(row);
   }
-
 }
 
-//Helper Functions for Rendering Day logic
+//Helper functions used rendering day logic
 function getLeadingDays(currentMonth, currentYear) {
-  let staDay = 0// 0, sunday, 1: monday
-  const ret = [];
+  let startDay = 0;
+  const leadingDays = [];
   const year = currentYear
   const month = currentMonth
   const firstWeekday = new Date(year, month, 1).getDay();
-  const days = firstWeekday + 7 - (staDay + 7) - 1; // 2 days become 1 for [1, 0]
+
+  const days = firstWeekday + 7 - (startDay + 7) - 1; // 2 days become 1 for [1, 0]
+
   for (let i = days * -1; i <= 0; i++) {
-    ret.push(new Date(year, month, i).getDate());
+    leadingDays.push(new Date(year, month, i).getDate());
   }
-  return ret;
+
+  return leadingDays;
 }
 
 function getMonthDays(currentMonth, currentYear) {
-  const ret = [];
+  const currentMonthDays = [];
   const year = currentYear
   const month = currentMonth
   const lastDay = new Date(year, month + 1, 0).getDate();
-  for (let i = 1; i <= lastDay; i++) ret.push(i);
-  return ret;
+  for (let i = 1; i <= lastDay; i++) currentMonthDays.push(i);
+
+  return currentMonthDays;
 }
 
 function getTrailingDays(leadingDays, monthDays) {
-  const ret = [];
+  const trailingMonthDays = [];
   const days = 42 - (leadingDays.length + monthDays.length);
-  for (let i = 1; i <= days; i++) ret.push(i);
-  return ret;
+  for (let i = 1; i <= days; i++) trailingMonthDays.push(i);
+
+  return trailingMonthDays;
 }
 
 function showMonths(currentMonth) {
-  let monthsHeader = document.getElementById("months-header");
-
   monthsHeader.innerHTML = "";
 
   let monthsToRender = [];
@@ -144,14 +154,7 @@ function showEvents() {
   currentDay.innerHTML = todaysName;
 }
 
-function daysInMonth(iMonth, iYear) {
-  return 32 - new Date(iYear, iMonth, 32).getDate();
-}
-
-//Event Listeners 
-previousArrow.addEventListener("click", previous)
-nextArrow.addEventListener("click", next);
-
+//Event Handlers for Next/Prev Arrows
 function previous() {
   currentYear = (currentMonth === 0) ? currentYear - 1 : currentYear;
   currentMonth = (currentMonth === 0) ? 11 : currentMonth - 1;
