@@ -13,13 +13,6 @@
   --colorSecondary: #7cc0c9;
   --mainDark: #839395;
   --secondaryDark: #696868;
-
-  /* --CalendarTitle: "Montserrat";
-  --CalendarYear: "Montserrat";
-  --CalendarMonths: "Montserrat";
-  --CalendarWeekdays: "Montserrat";
-
-  --CalendarNumbers: "Open Sans Condensed"; */
 }
 
 /*--------------------------------*/
@@ -31,42 +24,49 @@ i.far {
   color: var(--colorPrimary);
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--mainWhite);
+  line-height: 1.4;
+  font-size: 1rem;
+}
+
 /*--------------------------------*/
-/* App Layout */
+/* App Layout - iPhone */
 /*---------------------------------*/
 
 .wrapper {
-  display: flex;
-  max-width: 1408px;
-  /* max-height: 650px; */
+  display: inline;
+  max-width: px;
   margin: 0 auto;
-  padding: 150px 20px;
   justify-content: space-around;
 }
 
 .column__arrow {
-  /* flex: shrink; */
-  align-self: center;
-  padding: 10px;
+  display: inline-flex;
   margin: 0 auto;
+  justify-content: center;
   font-size: 32px;
-  flex-grow: 0.1;
+  height: 2em;
+  width: 2em;
+  max-height: 100%;
+  max-width: 100%;
 }
 
 .column__calendar {
-  flex-grow: 1;
-  margin: 0 20px;
-  padding: 20px;
+  margin: 24px auto 8px auto;
+  padding: 8px;
 }
 
 .column__events {
-  flex-grow: 0.1;
-  margin: 0 auto;
-  padding-left: 20px;
-  padding-top: 40px;
   z-index: 0;
-  max-height: 700px;
-  width: auto;
+  margin: 24px auto 1px auto;
+  padding: 8px;
 }
 
 /*--------------------------------*/
@@ -81,15 +81,6 @@ i.far {
 /*Calendar Layout*/
 /*---------------------------------*/
 
-.calendar-header {
-  height: 135px;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-end;
-  justify-content: space-between;
-  color: var(--colorPrimary);
-}
-
 .app-name {
   font-family: "Montserrat";
   font-weight: 700;
@@ -100,18 +91,30 @@ i.far {
   font-weight: 300;
 }
 
+.calendar-header {
+  height: auto;
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  color: var(--colorPrimary);
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+
 .month-header {
-  height: 60px;
+  height: 50px;
   display: flex;
   flex-direction: row;
-  align-items: flex-end;
+  align-items: center;
   justify-content: space-around;
   color: var(--colorSecondary);
   font-family: "Montserrat";
   text-transform: uppercase;
   font-size: 12px;
   border-bottom: 1.5px solid var(--mainDark);
-  margin-bottom: 1em;
+  margin: 1em 0 0 1em 0;
 }
 
 .current-month {
@@ -119,10 +122,24 @@ i.far {
   font-weight: bold;
 }
 
+.calendar__week-header {
+  display: flex;
+  color: var(--mainDark);
+  justify-content: space-around;
+  text-transform: uppercase;
+  font-family: "Montserrat";
+  font-size: 0.75em;
+  font-weight: 100;
+  padding-top: 8px;
+}
+
+.calendar__week-header th {
+  padding: 1em 1em 0 1em;
+}
+
 .calendar {
   width: 100%;
   font-size: 0.85em;
-  line-height: 1.25em;
   border-collapse: collapse;
   border-spacing: 0;
   text-align: center;
@@ -134,16 +151,7 @@ i.far {
 }
 
 .calendar td {
-  height: 5em;
-}
-
-.calendar__week-header {
-  color: var(--mainDark);
-  text-transform: uppercase;
-  font-family: "Montserrat";
-  font-weight: 100;
-  padding-top: 20px;
-  margin-top: 20px;
+  height: 3.5em;
 }
 
 .current-day {
@@ -177,6 +185,9 @@ i.far {
 .container__events_img {
   width: auto;
   height: auto;
+  padding: auto;
+  margin: auto;
+  flex: auto;
   text-align: center;
   background: linear-gradient(
       180deg,
@@ -191,13 +202,15 @@ i.far {
 }
 
 .events__header {
-  display: flex;
-  flex-direction: column;
+  width: auto;
+  height: auto;
+  /* display: flex;
+  flex-direction: column; */
 }
 
 .sign-in {
   text-align: right;
-  padding: 10px 30px 0px 0px;
+  padding: 16px 30px 0px 0px;
 }
 
 .sign-in__link {
@@ -207,6 +220,7 @@ i.far {
   text-decoration: none;
 }
 
+/* Todo! */
 .sign-in__link:hover {
   cursor: pointer;
   border-bottom: 3px solid var(--mainWhite);
@@ -214,7 +228,7 @@ i.far {
 
 .current-date {
   text-align: left;
-  padding-left: 4em;
+  padding: 1em 0 1em 2em;
 }
 
 .current-date h4 {
@@ -238,7 +252,7 @@ i.far {
   position: relative;
   display: flex;
   height: 350px;
-  margin: 20px 0;
+  /* margin: 1em 1em; */
   width: auto;
 }
 
@@ -251,30 +265,30 @@ i.far {
   color: var(--mainWhite);
   font-family: "Montserrat";
   font-weight: 700;
-  font-size: 20px;
+  font-size: 1em;
   overflow: auto;
 }
 
 .events-list {
-  padding: 0 1.75em;
+  padding: 0 1.75em 0 0;
   margin: 2px auto;
   background-color: var(--secondaryDark);
   opacity: 0.4;
-  border-radius: 5px;
+  border-radius: 6px;
   flex-wrap: wrap;
-  max-width: 40%;
+  max-width: 60%;
   overflow: auto;
 }
 
 .event__name {
   /* flex-grow: 0.5; */
-  padding: 5px 30px 30px 10px;
+  padding: 5px 30px 10px 10px;
   margin: 5px auto;
   color: var(--mainWhite);
   font-family: "Montserrat";
   font-style: italic;
   text-align: left;
-  font-size: 1.2em;
+  font-size: 1.25em;
 }
 
 .events-list::-webkit-scrollbar {
@@ -495,21 +509,71 @@ form button[type="submit"] {
 /*---------------------------------*/
 
 @media only screen and (min-width: 30em) {
-  /*480*/
   .calendar th,
   .calendar td {
-    /* margin: 0;
-    width: 15%; */
+    margin: 0;
+    width: 15%;
   }
 }
 
 @media only screen and (min-width: 40em) and (min-height: 20em) {
+  .wrapper {
+    /* display: flex;
+    flex-direction: column;
+    max-width: 1408px;
+    max-height: 650px;
+    margin: 0 auto;
+    padding: 150px 20px;
+    justify-content: center; */
+  }
+
   .calendar td {
     /* height: 2.5em; */
   }
 }
 @media only screen and (min-width: 40em) and (min-height: 40em) {
+  .wrapper {
+    max-width: 1408px;
+    max-height: 800px;
+    margin: 0 auto;
+    padding: 150px 20px;
+    display: flex;
+  }
+
+  .column__arrow {
+    /* visibility: hidden; */
+    position: relative;
+    top: 0px;
+    display: flex;
+    flex-direction: column;
+    align-content: flex-end;
+  }
+
+  .column__calendar {
+    flex-grow: 1;
+    margin: 0 auto;
+    padding: 8px 8px;
+    max-width: 800px;
+    max-width: 800px;
+  }
+
+  .calendar__week-header th {
+    display: inline-flex;
+    padding: 0 3em 0 3em;
+    text-align: center;
+    justify-items: center;
+  }
+
   .calendar td {
-    /* height: 5.55em; */
+    height: 4em;
+    /* width: 15%; */
+  }
+
+  .column__events {
+    flex-grow: 0.1;
+    margin: 0 auto;
+    padding-left: 20px;
+    z-index: 0;
+    width: auto;
   }
 }

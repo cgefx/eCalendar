@@ -19,6 +19,10 @@ const nextArrow = document.querySelector(".go-to-next");
 const calendarWeekHeader = document.querySelector(".calendar__week-header")
 const calendarTable = document.getElementById("calendar-body");
 
+//Event Listeners 
+previousArrow.addEventListener("click", previous)
+nextArrow.addEventListener("click", next);
+
 function showCalendar(month, year) {
   yearHeader.innerHTML = year;
   calendarWeekHeader.innerHTML = "";
@@ -82,37 +86,37 @@ function showCalendar(month, year) {
 
 }
 
-//Helper Functions for Rendering Day logic
+//Helper Functions for Rendering calendar logic
 function getLeadingDays(currentMonth, currentYear) {
-  let staDay = 0// 0, sunday, 1: monday
-  const ret = [];
+  let startDay = 0;
+  const leadingDays = [];
   const year = currentYear
   const month = currentMonth
   const firstWeekday = new Date(year, month, 1).getDay();
-  const days = firstWeekday + 7 - (staDay + 7) - 1; // 2 days become 1 for [1, 0]
+  const days = firstWeekday + 7 - (startDay + 7) - 1; // 2 days become 1 for [1, 0]
   for (let i = days * -1; i <= 0; i++) {
-    ret.push(new Date(year, month, i).getDate());
+    leadingDays.push(new Date(year, month, i).getDate());
   }
-  return ret;
+  return leadingDays;
 }
 
 function getMonthDays(currentMonth, currentYear) {
-  const ret = [];
+  const monthDays = [];
   const year = currentYear
   const month = currentMonth
   const lastDay = new Date(year, month + 1, 0).getDate();
-  for (let i = 1; i <= lastDay; i++) ret.push(i);
-  return ret;
+  for (let i = 1; i <= lastDay; i++) monthDays.push(i);
+  return monthDays;
 }
 
 function getTrailingDays(leadingDays, monthDays) {
-  const ret = [];
+  const trailingDays = [];
   const days = 42 - (leadingDays.length + monthDays.length);
-  for (let i = 1; i <= days; i++) ret.push(i);
-  return ret;
+  for (let i = 1; i <= days; i++) trailingDays.push(i);
+  return trailingDays;
 }
 
-function showMonths(currentMonth) {
+function showHeaderMonths(currentMonth) {
   let monthsHeader = document.getElementById("months-header");
 
   monthsHeader.innerHTML = "";
@@ -148,24 +152,21 @@ function daysInMonth(iMonth, iYear) {
   return 32 - new Date(iYear, iMonth, 32).getDate();
 }
 
-//Event Listeners 
-previousArrow.addEventListener("click", previous)
-nextArrow.addEventListener("click", next);
 
 function previous() {
   currentYear = (currentMonth === 0) ? currentYear - 1 : currentYear;
   currentMonth = (currentMonth === 0) ? 11 : currentMonth - 1;
   showCalendar(currentMonth, currentYear);
-  showMonths(currentMonth);
+  showHeaderMonths(currentMonth);
 }
 
 function next() {
   currentYear = (currentMonth === 11) ? currentYear + 1 : currentYear;
   currentMonth = (currentMonth + 1) % 12;
   showCalendar(currentMonth, currentYear);
-  showMonths(currentMonth);
+  showHeaderMonths(currentMonth);
 }
 
-showMonths(currentMonth);
+showHeaderMonths(currentMonth);
 showCalendar(currentMonth, currentYear);
 showEvents();

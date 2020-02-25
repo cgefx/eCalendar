@@ -13,11 +13,6 @@
   <body>
     <!-- Main Wrapper -->
     <div class="wrapper">
-      <!-- Left Arrow Column -->
-      <div class="column__arrow">
-        <i class=" go-to-prev fas fa-chevron-left"></i>
-      </div>
-
       <!-- Calendar Column -->
       <div class=" flex__column column__calendar">
         <div class="calendar-header">
@@ -34,10 +29,18 @@
         <!-- Calendar Table -->
         <div class="calendar-table">
           <table class="calendar">
-            <thead class="calendar__week-header"></thead>
+            <div class="calendar__week-header">
+              <thead></thead>
+            </div>
+
             <tbody class="calendar-body" id="calendar-body"></tbody>
           </table>
         </div>
+      </div>
+
+      <!-- Left Arrow Column -->
+      <div class="column__arrow">
+        <i class=" go-to-prev fas fa-chevron-left"></i>
       </div>
 
       <!-- Right Arrow Column -->
