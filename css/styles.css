@@ -57,6 +57,7 @@ body {
 .column__calendar {
   flex-grow: 1;
   margin: 20px;
+  width: auto;
 }
 
 .column__events {
@@ -86,36 +87,49 @@ i.far {
 .calendar-header {
   max-height: 135px;
   display: flex;
-  margin: 0 16px;
-  padding: 16px;
+  width: auto;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  padding: 16px 0;
   flex-direction: row;
   align-items: flex-end;
-  justify-content: space-between;
+  align-content: stretch;
+  justify-content: stretch;
   color: var(--colorPrimary);
 }
 
 .app-name {
   font-family: "Montserrat";
   font-weight: 700;
+  margin: 0 auto 0 0;
+  padding: 2px;
+  text-align: left;
+  width: 175px;
 }
 
 .current-year {
   font-family: "Montserrat";
+  align-self: start;
   font-weight: 400;
+  width: 90px;
+  margin: 0 0 0 auto;
+  padding: 2px;
 }
 
 .month-header {
-  height: 60px;
+  height: 50px;
+  margin-bottom: 1em;
+  padding: 0;
   display: flex;
   flex-direction: row;
-  align-items: flex-end;
+  align-items: center;
+  align-content: flex-start;
   justify-content: space-around;
   color: var(--colorSecondary);
   font-family: "Montserrat";
   text-transform: uppercase;
   font-size: 12px;
   border-bottom: 1.5px solid var(--mainDark);
-  margin-bottom: 1em;
 }
 
 .current-month {
@@ -139,10 +153,22 @@ i.far {
 
 .calendar td {
   height: 5em;
+  text-align: center;
+  width: 5em;
+  margin: 0 auto;
+}
+
+.calendar-body tr {
+  height: 5em;
+  width: 5em;
+  display: flex;
+  flex-shrink: 1;
+  margin: 0;
 }
 
 .calendar-table {
   display: flex;
+  text-align: center;
 }
 
 .calendar__week-header {
@@ -154,12 +180,32 @@ i.far {
   margin-top: 20px;
 }
 
-.current-day {
-  background: var(--colorPrimary);
+.current-day-text {
   color: var(--mainWhite);
   margin: 0;
   padding: 0;
+  left: 50%;
+  top: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  position: absolute;
+}
+
+.current-day-circle {
+  background: var(--colorPrimary);
   border-radius: 50%;
+  top: 50%;
+  height: 5em;
+  display: inline-flex;
+  align-content: center;
+  width: 5em;
+  margin: 0;
+  padding: 0;
+  position: relative;
 }
 
 .calendar_week-header--weekend {
@@ -296,7 +342,7 @@ i.far {
   margin: 5px auto;
   color: var(--mainWhite);
   font-family: "Montserrat";
-  font-weight: 500;
+  font-weight: 300;
   font-style: italic;
   text-align: left;
   font-size: 1.25em;
@@ -481,6 +527,7 @@ select {
   padding-right: 10px;
   font-size: 14px;
   font-weight: 400;
+  font-family: "Montserrat";
   color: var(--secondaryDark);
 }
 
@@ -496,7 +543,7 @@ form button[type="submit"] {
   background-color: var(--colorPrimary);
   font-family: "Montserrat";
   font-size: 18px;
-  font-weight: 500;
+  font-weight: 400;
   padding: 2px 16px;
   border-radius: 5px;
   cursor: pointer;

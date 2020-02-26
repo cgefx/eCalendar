@@ -42,7 +42,10 @@ function showCalendar(currentMonth, year) {
     if (i === 0 || i === 6) {
       headerCell.classList.add("calendar_week-header--weekend")
     }
-    if (days[i] === todaysName) {
+    if (days[i] === todaysName &&
+      currentYear === today.getFullYear() &&
+      currentMonth === today.getMonth()
+    ) {
       headerCell.classList.add("current-day-of-week")
     }
     headerCell.appendChild(headerCellText);
@@ -60,29 +63,40 @@ function showCalendar(currentMonth, year) {
   //Building the Calendar table body 
   let dayToRender = 0;
   let isMonthCurrent = false;
+  const styledDiv = document.createElement('div');
+  styledDiv.classList.add("current-day-circle");
+
   for (let i = 0; i < 6; i++) {
     let row = document.createElement("tr");
     for (let j = 0; j < 7; j++) {
       if (daysToRender[dayToRender] === 1) {
         isMonthCurrent = !isMonthCurrent;
       }
+
       let cell = document.createElement("td");
       let cellText = document.createTextNode(daysToRender[dayToRender])
+
       if (!isMonthCurrent) {
         cell.classList.add("not-current-month");
       }
-      if (
-        daysToRender[dayToRender] === today.getDate() &&
-        currentYear === today.getFullYear() &&
-        currentMonth === today.getMonth()
-      ) {
-        cell.classList.add("current-day");
-      }
+
       if (j === 0 || j === 6) {
         cell.classList.add("calendar_week-days--weekend")
       }
       cell.appendChild(cellText)
-      row.appendChild(cell)
+
+      if (
+        daysToRender[dayToRender] === today.getDate() &&
+        currentYear === today.getFullYear() &&
+        currentMonth === today.getMonth()) {
+        styledDiv.appendChild(cell);
+        cell.appendChild(cellText);
+        cell.classList.add("current-day-text");
+        row.appendChild(styledDiv);
+      }
+      else {
+        row.appendChild(cell)
+      }
       dayToRender++;
     }
     calendarTable.appendChild(row);
@@ -96,8 +110,7 @@ function getLeadingDays(currentMonth, currentYear) {
   const year = currentYear
   const month = currentMonth
   const firstWeekday = new Date(year, month, 1).getDay();
-
-  const days = firstWeekday + 7 - (startDay + 7) - 1; // 2 days become 1 for [1, 0]
+  const days = firstWeekday + 7 - (startDay + 7) - 1;
 
   for (let i = days * -1; i <= 0; i++) {
     leadingDays.push(new Date(year, month, i).getDate());
