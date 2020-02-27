@@ -20,7 +20,7 @@ const calendarTable = document.querySelector(".calendar__body");
 const currentDay = document.querySelector(".events__heading--current-day");
 const monthAndDate = document.querySelector(".events__heading--month-and-date");
 
-// Prev/Next Arrows
+//Prev/Next Arrows
 const previousArrow = document.querySelector(".go-to-prev");
 const nextArrow = document.querySelector(".go-to-next");
 
@@ -28,7 +28,7 @@ const nextArrow = document.querySelector(".go-to-next");
 previousArrow.addEventListener("click", previous);
 nextArrow.addEventListener("click", next);
 
-function showCalendar(currentMonth, year) {
+function showCalendar(month, year) {
   yearHeader.innerHTML = year;
   calendarWeekHeader.innerHTML = "";
   calendarTable.innerHTML = "";
@@ -83,18 +83,20 @@ function showCalendar(currentMonth, year) {
       if (j === 0 || j === 6) {
         cell.classList.add("calendar_week-days--weekend")
       }
-      cell.appendChild(cellText)
 
       if (
         daysToRender[dayToRender] === today.getDate() &&
         currentYear === today.getFullYear() &&
-        currentMonth === today.getMonth()) {
+        currentMonth === today.getMonth() &&
+        isMonthCurrent
+      ) {
         styledDiv.appendChild(cell);
         cell.appendChild(cellText);
         cell.classList.add("current-day-text");
         row.appendChild(styledDiv);
       }
       else {
+        cell.appendChild(cellText)
         row.appendChild(cell)
       }
       dayToRender++;
@@ -103,7 +105,7 @@ function showCalendar(currentMonth, year) {
   }
 }
 
-//Helper functions used rendering day logic
+//Helper functions used for rendering day logic
 function getLeadingDays(currentMonth, currentYear) {
   let startDay = 0;
   const leadingDays = [];
@@ -115,7 +117,7 @@ function getLeadingDays(currentMonth, currentYear) {
   for (let i = days * -1; i <= 0; i++) {
     leadingDays.push(new Date(year, month, i).getDate());
   }
-
+  // console.log(leadingDays);
   return leadingDays;
 }
 
